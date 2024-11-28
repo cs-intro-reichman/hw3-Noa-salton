@@ -6,7 +6,7 @@ public class Anagram {
 		System.out.println(isAnagram("William Shakespeare","I am a weakish speller")); // true
 		System.out.println(isAnagram("Madam Curie","Radium came")); // true
 		System.out.println(isAnagram("Tom Marvolo Riddle","I am Lord Voldemort")); // true
-
+		System.out.println(preProcess("what no"));
 		// Tests the preProcess function.
 		System.out.println(preProcess("What? No way!!!"));
 		
@@ -44,7 +44,7 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		String lowerCase = "";
-		for (int i = 0 ; i < str.length(); i++){if (Character.isLetter(str.charAt(i)) || String.valueOf(str.charAt(i)) == " "){lowerCase += str.charAt(i);}}
+		for (int i = 0 ; i < str.length(); i++){if (Character.isLetter(str.charAt(i)) || String.valueOf(str.charAt(i)).equals(" ")){lowerCase += String.valueOf(str.charAt(i));}}
 		return lowerCase.toLowerCase();
 	} 
 	   
