@@ -29,8 +29,8 @@ public class Anagram {
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
 		//String[] arrList1 = preProcess(str1).split("");
-		String str1ProProcess =  preProcess(str1);
-		String proPreProcessSTR2 = preProcess(str2);
+		String str1ProProcess =  preProcess(str1).replaceAll(" ", "");
+		String proPreProcessSTR2 = preProcess(str2).replaceAll(" ", "");
 		if (proPreProcessSTR2.length() != str1ProProcess.length()){ return false;}
 		boolean bool = true;
 		for (int i=0; i < proPreProcessSTR2.length(); i++){
@@ -44,14 +44,14 @@ public class Anagram {
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
 		String lowerCase = "";
-		for (int i = 0 ; i < str.length(); i++){if (Character.isLetter(str.charAt(i))){lowerCase += str.charAt(i);}}
+		for (int i = 0 ; i < str.length(); i++){if (Character.isLetter(str.charAt(i)) || String.valueOf(str.charAt(i)) == " "){lowerCase += str.charAt(i);}}
 		return lowerCase.toLowerCase();
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		String newstr = preProcess(str);
+		String newstr = preProcess(str).replaceAll(" ", "");
 		String arrANAGRAM [] = new String[newstr.length()];
 		String output = ""; 
 		for (int k = 0; k < arrANAGRAM.length; k++){arrANAGRAM[k] = "";} 
